@@ -1,0 +1,125 @@
+/* .body{
+    background-image: url("https://previews.123rf.com/images/larisap/larisap1305/larisap130500060/19714080-elegant-wallpaper-design-fancy-background.jpg;");
+} */
+/* .gap{
+    margin-left: 10px;
+    margin-right: 40px;
+} */
+
+
+
+  
+
+
+.img {
+
+width:80%;
+margin-left:64px
+}
+.space{
+    margin-top: 20px;
+    /* margin-left: 60px; */
+}
+.header{
+    margin-bottom: 20px;
+    display: flex;
+
+    flex-direction: column;
+}
+.heading{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.card{
+    min-width: 500px;
+    max-width: 600px;
+    min-height: 200px;
+    max-height:auto ;
+    /* background-color: antiquewhite; */
+}
+.root{
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.one{
+    min-width: 200px;
+    max-width: 200 px;
+    min-height: 200px;
+    max-height:auto ;
+}
+.dash{
+    width: 18rem;
+}
+.dropdown{
+    display: flex;
+    position: absolute;
+    left: 80%;
+    margin-left: 50px;
+    /* margin-right: 10px; */
+
+    /* top: 4.5rem; */
+    /* right: 1.5rem; */
+    /* width: 129pxpx; */
+    /* padding: 15px; */
+    /* border-radius: px; */
+    background-color: #fce8c8;
+     /* border: 1px solid gray;  */
+    border-radius: 10px;
+}
+
+.button{
+    
+    /* background-color:#f0e7d8;This color corresponds to bg-blue-400 in Tailwind CSS */
+    position: absolute;
+    top: 40px; /* Assuming you want a fixed value of 20 pixels from the top */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 0.5rem; /* You might need to adjust this value based on your requirements */
+    /* padding: 0.5rem; Assuming you want a padding of 0.5rem on all sides */
+     width: 60%;/* Assuming you want the element to take up the full width */
+   left: 80%;
+}
+.down{
+    margin-top: 10px; 
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    background-color: white; /* Adjust color as needed */
+    cursor: pointer;
+   border-top-right-radius: 0.5rem; /* Adjust border radius as needed */
+    border-bottom-right-radius: 0.5rem; /* Adjust border radius as needed */
+    border-top-left-radius: 0.5rem; /* Adjust border radius as needed */
+    border-bottom-left-radius: 0.5rem; /* Adjust border radius as needed */
+  
+    border-left-color: transparent;
+  
+}
+.top{
+    
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 0.5rem; /* Adjust border radius as needed */
+  }
+  #sidebar-wrapper {
+    min-height: 100vh;
+    width: 250px;
+  }
+  
+  #page-content-wrapper {
+    flex: 1;
+  }
+  
+  #wrapper {
+    display: flex;
+  }
+
+
+
+  
+  
