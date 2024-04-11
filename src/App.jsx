@@ -18,6 +18,7 @@ import Javascript from './Javascript';
 import QuizApp from './QuizApp';
 import Quiz from './Quiz';
 import Assignmentt from './Assignmentt';
+// import Registration from './Registration';
  
 
 export default function() {
@@ -43,6 +44,7 @@ export default function() {
          <Route path="/Register" element={<Register/> }/>
          <Route path="/Ui" element={<Ui/> }/>
           <Route path="/StarRatingApp" element={<StarRatingApp/>}/>
+          {/* <Route path="/Registration" element={<Registration/>}/> */}
         
 
     </Routes>

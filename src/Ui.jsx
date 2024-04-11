@@ -17,19 +17,19 @@ export default function Ui() {
     { 
       id: 1,
       name: "HTML Course",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G7K4-q2sSnpAobvMWegjHK4f0NmrzniwRQ&usqp=CAU",  
+      image: "https://mlyhfwsozyid.i.optimole.com/w:1920/h:1080/q:mauto/f:best/https://timezest.com/wp-content/uploads/How-To-Optimize-Your-Helpdesk-Starter-Pack-in-2022.png",  
       link: "/Scond"
     },
     { 
       id: 2,
       name: "javascript",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G7K4-q2sSnpAobvMWegjHK4f0NmrzniwRQ&usqp=CAU", 
+      image: "https://mlyhfwsozyid.i.optimole.com/w:1920/h:1080/q:mauto/f:best/https://timezest.com/wp-content/uploads/How-To-Optimize-Your-Helpdesk-Starter-Pack-in-2022.png", 
       link: "/javascript"
     },
     { 
       id: 3,
       name: "JavaScript Course",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G7K4-q2sSnpAobvMWegjHK4f0NmrzniwRQ&usqp=CAU", 
+      image: "https://e0.pxfuel.com/wallpapers/769/212/desktop-wallpaper-ways-that-remote-tech-support-can-provide-fast-it-help-with-no-visit-needed-thumbnail.jpg", 
       link: "/Module"
     }
   ];
@@ -77,7 +77,7 @@ export default function Ui() {
               <Card style={{ width: '18rem' }}>
                 <Row>
                   <Col xs={6}>
-                    <Card.Img style={{ height:"7rem" }} variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G7K4-q2sSnpAobvMWegjHK4f0NmrzniwRQ&usqp=CAU" />
+                    <Card.Img style={{ height:"7rem" }} variant="top" src="https://e0.pxfuel.com/wallpapers/769/212/desktop-wallpaper-ways-that-remote-tech-support-can-provide-fast-it-help-with-no-visit-needed-thumbnail.jpg" />
                   </Col>
                   <Col xs={6}>
                     <Card.Body>
@@ -92,7 +92,7 @@ export default function Ui() {
                 <Card style={{ width: '18rem' }}>
                   <Row>
                     <Col xs={6}>
-                      <Card.Img style={{ height:"7rem" }} variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G7K4-q2sSnpAobvMWegjHK4f0NmrzniwRQ&usqp=CAU" />
+                      <Card.Img style={{ height:"7rem" }} variant="top" src="https://mlyhfwsozyid.i.optimole.com/w:1920/h:1080/q:mauto/f:best/https://timezest.com/wp-content/uploads/How-To-Optimize-Your-Helpdesk-Starter-Pack-in-2022.png" />
                     </Col>
                     <Col xs={6}>
                       <Card.Body>
@@ -119,7 +119,7 @@ export default function Ui() {
                       </Link>
                       <div onClick={() => toggleFavorite(course.id)} 
                       style={{ cursor: "pointer", position: "absolute", top: "10px", right: "10px" }}>
-                        <FontAwesomeIcon icon={faHeart} size="2x" color={isFavorite(course.id) ? "red" : "gray"} />
+                        <FontAwesomeIcon icon={faHeart} size="2x" color={isFavorite(course.id) ? "#294573" : "gray"} />
                       </div>
                       <Card.Body>
                         <h6>{course.name}</h6>

@@ -5,23 +5,23 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Form from "react-bootstrap/Form";
 import Image from "react-bootstrap/Image";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import style from "./CSS/Ui.module.css"
-
+import { useState } from "react";
 export default function Dashb() {
-  // const[buttonClicked, setbuttonClicked] = useState(true);
-  // const cardStyle = {
-  //   backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust the alpha value for transparency
-  //   border: 'none', // Remove border if needed
-  //   width: '300px' // Adjust width as needed
-  // };
+  const[buttonClicked, setbuttonClicked] = useState(true);
+  const cardStyle = {
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust the alpha value for transparency
+    border: 'none', // Remove border if needed
+    // width: '300px' // Adjust width as needed
+  };
 
 return (
     <>
-      <div style={{backgroundImage:'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3QuCs0ouxYAkzcMwS7GUpbRdLlCXP5v5Q2kKaq4HrP7Lvn0clGejH9N2v7uQFag5L5_4&usqp=CAU)',backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>      <Container  className={style.root}>
-      {/* <div className="transparent-card-container"> */}
-       {/* <Card style={cardStyle}> */}
-      <Card>
+      <div style={{backgroundImage:'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pJQypNM4pvdYFEdb_8T2Vcl1TFa13XCPOA&s)',backgroundRepeat:"no-repeat",backgroundSize:"cover"}}>      <Container  className={style.root}>
+      <div className="transparent-card-container">
+       <Card style={cardStyle}>
+      {/* <Card> */}
           <Card.Body className={style.card}>
             <Row>
               <Col>
@@ -58,18 +58,24 @@ return (
                       type="password"
                       placeholder="Password"
                     />
-                      <Link to="/Ui"><Button className={style.space} variant="primary" onClick={()=>{}}>Login</Button>{' '}
+                      <Link to="/Ui">
+                      <div className="d-grid gap-2">
+   
+        
+      <Button style={{marginTop:"20px",}} variant="primary" onClick={()=>{}}>Login</Button>{' '}
+      </div>
                       </Link> 
-                      <Link to="/Register">
+                      
+                      <NavLink to="/Register">
                       Not have account ?Register
-                    </Link>
+                    </NavLink>
                   </Row>
                 </Col>
               </Col>
             </Row>
           </Card.Body>
         </Card>
-        {/* </div> */}
+        </div>
       </Container>
       </div>
       
