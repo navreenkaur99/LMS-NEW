@@ -66,7 +66,7 @@ export default function Profile () {
                         </tr>
                         <tr >
                           <td>
-                      <Nav.Link href="/Ui">Favorites</Nav.Link>
+                      <Nav.Link href="/favorites">Favorites</Nav.Link>
                       </td>
                         </tr>
 

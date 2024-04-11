@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 
-
 const StarRating = () => {
-  const [rating, setRating] = useState(null);
+  const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(null);
 
   return (
     <div>
       {[...Array(5)].map((star, i) => {
-        const ratingValue = i + 0.5;
+        const ratingValue = i + 1;
 
         return (
-           <label key={i}>
+          <label key={i}>
             <FaStar
-             style={{ margin: '5px',
-                cursor: 'pointer'}}
-                onClick={() => setRating(ratingValue)}
-           
+              style={{
+                margin: '5px',
+                cursor: 'pointer'
+              }}
+              onClick={() => setRating(ratingValue)}
               color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
               size={30}
               onMouseEnter={() => setHover(ratingValue)}
@@ -26,10 +26,12 @@ const StarRating = () => {
           </label>
         );
       })}
+      <div style={{ marginTop: '10px' }}>
+        <span>Rating: {rating}/5</span>
+      </div>
     </div>
   );
 };
-
 
 const StarRatingApp = () => {
   return (

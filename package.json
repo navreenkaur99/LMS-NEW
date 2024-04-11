@@ -17,6 +17,8 @@
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
     "cdbreact": "^1.5.18",
+    "ng2-pdf-viewer": "^10.0.0",
+    "pdf-viewer": "^0.8.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.2",
     "react-doc-viewer": "^0.1.5",

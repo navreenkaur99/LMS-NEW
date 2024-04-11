@@ -1,98 +1,216 @@
-import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
-import { Row, Col, Container, Form } from "react-bootstrap";
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import StarRatingApp from "./StarRatingApp";
+import React, { useState } from 'react';
+import { FaCheck } from 'react-icons/fa'; // Import the FaCheck icon from Font Awesome
 
-export default function Ui() {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [favorites, setFavorites] = useState([]);
+const Pdf = () => {
+  const [isRead, setIsRead] = useState(false);
 
-  const courses = [
-    { 
-        id: 1,
-        name: "HTML Course",
-        image: "https://example.com/html-course-image.jpg",
-        link: "/Module"
-    },
-    { 
-        id: 2,
-        name: "CSS Course",
-        image: "https://example.com/css-course-image.jpg",
-        link: "/Module"
-    },
-    { 
-        id: 3,
-        name: "JavaScript Course",
-        image: "https://example.com/js-course-image.jpg",
-        link: "/Module"
-    }
-  ];
-
-  const toggleFavorite = (courseId) => {
-    if (favorites.includes(courseId)) {
-      setFavorites(favorites.filter(id => id !== courseId));
-    } else {
-      setFavorites([...favorites, courseId]);
-    }
-  };
-
-  const isFavorite = (courseId) => {
-    return favorites.includes(courseId);
-  };
-
-  const filterCourses = (courseName) => {
-    return courseName.toLowerCase().includes(searchQuery.toLowerCase());
+  const handleMarkAsRead = () => {
+    setIsRead(true);
+    // Perform any additional logic, such as updating a database or state
   };
 
   return (
-    <>
-      <div style={{backgroundColor:"#edfafa"}}>
-        <div data-aos="fade-right">   
-          <h4>Dashboard</h4>
-          <Container>
-            <Row className="justify-content-md-center">
-              <Col xs={12} md={6}>
-                <Form.Control
-                  type="text"
-                  placeholder="Search courses..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  style={{ marginBottom: "10px" }}
-                />
-              </Col>
-            </Row>
-          </Container>
-          <Row> 
-            {courses.map((course) => {
-              if (filterCourses(course.name)) {
-                return (
-                  <Col key={course.id} style={{ marginBottom: "20px" }}>
-                    <Card style={{ width: '18rem' }}>
-                      <Link to={course.link}>
-                        <Card.Img style={{ height: '12rem' }} variant="top" src={course.image} />
-                      </Link>
-                      <div onClick={() => toggleFavorite(course.id)} style={{ cursor: "pointer", position: "absolute", top: "10px", right: "10px" }}>
-                        <FontAwesomeIcon icon={faHeart} size="2x" color={isFavorite(course.id) ? "red" : "gray"} />
-                      </div>
-                      <Card.Body>
-                        <h6>{course.name}</h6>
-                        <StarRatingApp />
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                );
-              }
-              return null;
-            })}
-          </Row>
-        </div>
+    <div>
+      <div style={{ width: '100%', height: '800px' }}>
+        <iframe
+          title="PDF Viewer"
+          src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+          width="100%"
+          height="100%"
+        >
+          This browser does not support PDFs. Please download the PDF to view it.
+        </iframe>
       </div>
-    </>
+      {!isRead ? (
+        <button
+          onClick={handleMarkAsRead}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            color: 'blue', // Set button text color to blue
+            fontWeight: 'bold', // Make button text bold
+            border: '2px solid blue', // Add blue border
+            borderRadius: '5px', // Add border radius
+            padding: '5px 10px', // Add padding
+            cursor: 'pointer', // Add pointer cursor
+          }}
+        >
+          <FaCheck style={{ marginRight: '5px' }} /> {/* Render the FaCheck icon */}
+          Mark as Read
+        </button>
+      ) : (
+        <div style={{ display: 'flex', alignItems: 'center', color: 'blue', fontWeight: 'bold' }}>
+          <FaCheck style={{ marginRight: '5px' }} />
+          <FaCheck /> {/* Render the FaCheck icon twice */}
+          <span style={{ marginLeft: '5px' }}>Read</span>
+        </div>
+      )}
+    </div>
   );
-}
+};
+
+export default Pdf;
+
+
+// import React, { useState } from 'react';
+// import { Container, Button, Spinner, Alert } from 'react-bootstrap'; // Import Spinner and Alert for loading and error handling
+// import { Document, Page, pdfjs } from 'react-pdf'; // Import pdfjs to set workerSrc
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+
+// const Pdf = () => {
+//   const [numPages, setNumPages] = useState(null);
+//   const [pageNumber, setPageNumber] = useState(1);
+//   const [loading, setLoading] = useState(true); // State for loading indicator
+//   const [error, setError] = useState(null); // State for error handling
+
+//   const onDocumentLoadSuccess = ({ numPages }) => {
+//     setNumPages(numPages);
+//     setLoading(false); // Set loading to false when the document is loaded
+//   };
+
+//   const onError = (error) => {
+//     setError(error); // Set error state if there's an error loading the document
+//     setLoading(false); // Set loading to false in case of error
+//   };
+
+//   return (
+//     <Container>
+//       <div>
+//         <Document
+//           file="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+//           onLoadSuccess={onDocumentLoadSuccess}
+//           onLoadError={onError} // Call onError in case of error loading the document
+//         >
+//           <Page pageNumber={pageNumber} />
+//         </Document>
+//         {loading && <Spinner animation="border" />} {/* Show loading spinner when loading */}
+//         {error && <Alert variant="danger">{error.message}</Alert>} {/* Show error message if there's an error */}
+//         {!loading && !error && (
+//           <div>
+//             <p>
+//               Page {pageNumber} of {numPages}
+//             </p>
+//             <Button
+//               variant="primary"
+//               onClick={() => setPageNumber(pageNumber - 1)}
+//               disabled={pageNumber <= 1}
+//             >
+//               Previous
+//             </Button>
+//             <Button
+//               variant="primary"
+//               onClick={() => setPageNumber(pageNumber + 1)}
+//               disabled={pageNumber >= numPages}
+//             >
+//               Next
+//             </Button>
+//           </div>
+//         )}
+//       </div>
+//     </Container>
+//   );
+// };
+
+// export default Pdf;
+
+
+// import React, { useState } from "react";
+// import Card from "react-bootstrap/Card";
+// import { Row, Col, Container, Form } from "react-bootstrap";
+// import { Link } from 'react-router-dom';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faHeart } from '@fortawesome/free-solid-svg-icons';
+// import StarRatingApp from "./StarRatingApp";
+
+// export default function Ui() {
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [favorites, setFavorites] = useState([]);
+
+//   const courses = [
+//     { 
+//         id: 1,
+//         name: "HTML Course",
+//         image: "https://example.com/html-course-image.jpg",
+//         link: "/Module"
+//     },
+//     { 
+//         id: 2,
+//         name: "CSS Course",
+//         image: "https://example.com/css-course-image.jpg",
+//         link: "/Module"
+//     },
+//     { 
+//         id: 3,
+//         name: "JavaScript Course",
+//         image: "https://example.com/js-course-image.jpg",
+//         link: "/Module"
+//     }
+//   ];
+
+//   const toggleFavorite = (courseId) => {
+//     if (favorites.includes(courseId)) {
+//       setFavorites(favorites.filter(id => id !== courseId));
+//     } else {
+//       setFavorites([...favorites, courseId]);
+//     }
+//   };
+
+//   const isFavorite = (courseId) => {
+//     return favorites.includes(courseId);
+//   };
+
+//   const filterCourses = (courseName) => {
+//     return courseName.toLowerCase().includes(searchQuery.toLowerCase());
+//   };
+
+//   return (
+//     <>
+//       <div style={{backgroundColor:"#edfafa"}}>
+//         <div data-aos="fade-right">   
+//           <h4>Dashboard</h4>
+//           <Container>
+//             <Row className="justify-content-md-center">
+//               <Col xs={12} md={6}>
+//                 <Form.Control
+//                   type="text"
+//                   placeholder="Search courses..."
+//                   value={searchQuery}
+//                   onChange={(e) => setSearchQuery(e.target.value)}
+//                   style={{ marginBottom: "10px" }}
+//                 />
+//               </Col>
+//             </Row>
+//           </Container>
+//           <Row> 
+//             {courses.map((course) => {
+//               if (filterCourses(course.name)) {
+//                 return (
+//                   <Col key={course.id} style={{ marginBottom: "20px" }}>
+//                     <Card style={{ width: '18rem' }}>
+//                       <Link to={course.link}>
+//                         <Card.Img style={{ height: '12rem' }} variant="top" src={course.image} />
+//                       </Link>
+//                       <div onClick={() => toggleFavorite(course.id)} style={{ cursor: "pointer", position: "absolute", top: "10px", right: "10px" }}>
+//                         <FontAwesomeIcon icon={faHeart} size="2x" color={isFavorite(course.id) ? "red" : "gray"} />
+//                       </div>
+//                       <Card.Body>
+//                         <h6>{course.name}</h6>
+//                         <StarRatingApp />
+//                       </Card.Body>
+//                     </Card>
+//                   </Col>
+//                 );
+//               }
+//               return null;
+//             })}
+//           </Row>
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 
 // import React from 'react';

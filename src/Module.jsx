@@ -1,22 +1,190 @@
+// import React, { useState, useEffect } from 'react';
+// import { Container, Row, Col, Nav, NavLink } from 'react-bootstrap';
+// import QuizApp from './CSS/QuizApp';
+
+// export default function Module() {
+//   const [activeModule, setActiveModule] = useState('module1');
+
+//   const handleNavLinkClick = (module) => {
+//     setActiveModule(module);
+//   };
+
+//   useEffect(() => {
+//     // This effect will run when the component mounts
+//     // and set the active module to 'module1' by default
+//     setActiveModule('module1');
+//   }, []);
+
+//   return (
+//     <Container fluid>
+//       <Row style={{ display: "flex" }}>
+//         <Col md={3} id="sidebar">
+//           <Nav className="flex-column">
+//             <NavLink href="#module1" onClick={() => handleNavLinkClick("module1")}>
+//               Module1
+//             </NavLink>
+//             <NavLink href="#module2" onClick={() => handleNavLinkClick("module2")}>
+//               Module2
+//             </NavLink>
+//             <NavLink href="#module3" onClick={() => handleNavLinkClick("module3")}>
+//               Module3
+//             </NavLink>
+//             <NavLink href="#module4" onClick={() => handleNavLinkClick("module4")}>
+//               Module4
+//             </NavLink>
+//           </Nav>
+//         </Col>
+
+//         <Col md={9} id="content">
+//           <h4>HTML CONTENT</h4>
+//           <div>
+//             {activeModule === "module1" && (
+//               <div style={{ width: '100%', height: '800px' }}>
+//                 <iframe
+//                   title="PDF Viewer"
+//                   src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+//                   width="100%"
+//                   height="100%"
+//                 >
+//                   This browser does not support PDFs. Please download the PDF to view it.
+//                 </iframe>
+//               </div>
+//             )}
+//             {activeModule === "module2" && <p><QuizApp/></p>}
+//             {activeModule === "module3" && <p>Content for Module3</p>}
+//             {activeModule === "module4" && <p>Content for Module4</p>}
+//           </div>
+//           <hr />
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// }
+
+
+// import React, { useState } from 'react';
+// import { Container, Row, Col, Nav, NavLink } from 'react-bootstrap';
+
+// export default function Module() {
+//   const [activeModule, setActiveModule] = useState(null);
+
+//   const handleNavLinkClick = (module) => {
+//     setActiveModule(module);
+//   };
+
+//   return (
+//     <Container fluid>
+//       <Row style={{ display: "flex" }}>
+//         <Col md={3} id="sidebar">
+//           <Nav className="flex-column">
+//             <NavLink href="#module1" onClick={() => handleNavLinkClick("module1")}>
+//               Module1
+//             </NavLink>
+//             <NavLink href="#module2" onClick={() => handleNavLinkClick("module2")}>
+//               Module2
+//             </NavLink>
+//             <NavLink href="#module3" onClick={() => handleNavLinkClick("module3")}>
+//               Module3
+//             </NavLink>
+//             <NavLink href="#module4" onClick={() => handleNavLinkClick("module4")}>
+//               Module4
+//             </NavLink>
+//           </Nav>
+//         </Col>
+
+//         <Col md={9} id="content">
+//           <h4>HTML CONTENT</h4>
+//           <div>
+//             {activeModule === "module1" && (
+//               <div style={{ width: '100%', height: '800px' }}>
+//                 <iframe
+//                   title="Video Player"
+//                   src="https://www.youtube.com/embed/dQw4w9WgXcQ" // Example video link
+//                   width="100%"
+//                   height="43%"
+//                 >
+//                   This browser does not support embedded videos. Please click the link to view it.
+//                 </iframe>
+//               </div>
+//             )}
+//             {activeModule === "module2" && <p>Content for Module2</p>}
+//             {activeModule === "module3" && <p>Content for Module3</p>}
+//             {activeModule === "module4" && <p>Content for Module4</p>}
+//           </div>
+//           <hr />
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// }
+
+
+// import React, { useState } from 'react';
+// import { Container, Row, Col, Nav, NavLink } from 'react-bootstrap';
+
+// export default function Module() {
+//   const [activeModule, setActiveModule] = useState(null);
+
+//   const handleNavLinkClick = (module) => {
+//     setActiveModule(module);
+//   };
+
+//   return (
+//     <Container fluid>
+//       <Row style={{ display: "flex" }}>
+//         <Col md={3} id="sidebar">
+//           <Nav className="flex-column">
+
+//             <NavLink href="#module1" onClick={() => handleNavLinkClick("module1")}>
+//               Module1
+//             </NavLink>
+//             <NavLink href="#module2" onClick={() => handleNavLinkClick("module2")}>
+//               Module2
+//             </NavLink>
+//             <NavLink href="#module3" onClick={() => handleNavLinkClick("module3")}>
+//               Module3
+//             </NavLink>
+//             <NavLink href="#module4" onClick={() => handleNavLinkClick("module4")}>
+//               Module4
+//             </NavLink>
+//           </Nav>
+//         </Col>
+
+//         <Col md={9} id="content">
+//           <h4>HTML CONTENT</h4>
+//           <div>
+//             {activeModule === "module1" && (
+//               <div style={{ width: '100%', height: '800px' }}>
+//                 <iframe
+//                   title="PDF Viewer"
+//                   src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+//                   width="100%"
+//                   height="43%"
+//                 >
+//                   This browser does not support PDFs. Please download the PDF to view it.
+//                 </iframe>
+//               </div>
+//             )}
+//             {activeModule === "module2" && <p>Content for Module2</p>}
+//             {activeModule === "module3" && <p>Content for Module3</p>}
+//             {activeModule === "module4" && <p>Content for Module4</p>}
+//           </div>
+//           <hr />
+//         </Col>
+//       </Row>
+//     </Container>
+//   );
+// }
+
+
 
 import { Container, Row, Col, Nav,NavLink,Navbar, Button, Collapse,Table } from 'react-bootstrap';
 import React, { useState } from "react";
-import DocViewer from "react-doc-viewer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Profile from './Profile';
 
 export default function Module() {
-
-  const docs = [
-    { uri: "file:///C:/Users/joban/Documents/LMS/src/Html.pdf",
-  fileType: "ppt",
-fileName :"Html.pdf"
- },
-
-  ];
-
-
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState(false);
   
@@ -112,8 +280,8 @@ fileName :"Html.pdf"
         </center>
 
       </Nav>
-    </Navbar.Collapse>
-  </Navbar>
+           </Navbar.Collapse>
+   </Navbar>
           {/* <Nav className="flex-column">
          
             <Nav.Link href="https://bootstrapious.com/tutorial/files/sidebar.zip" className="download">
@@ -133,27 +301,30 @@ fileName :"Html.pdf"
           <Container>
       <Row>
         <Col>
-          <iframe 
-            width="100%" 
-            height="315" 
-            src="https://www.youtube.com/embed/HcOc7P5BMi4" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-          ></iframe>
+        <div>
+    {/* Render the DocViewer component within curly braces */}
+    <div style={{ width: '100%', height: '800px' }}>
+      <iframe
+        title="PDF Viewer"
+        src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+        width="100%"
+        height="43%"
+      >
+        This browser does not support PDFs. Please download the PDF to view it.
+      </iframe>
+    </div>
+  
+  </div>
+
         </Col>
       </Row>
     </Container>
+    
           <hr />
      </Col>
 </Row>
 </Container>
 
-<div>
-    {/* Render the DocViewer component within curly braces */}
-    <DocViewer documents={docs} style={{ height: 1000 }} />
-  </div>
 
 </>
 
