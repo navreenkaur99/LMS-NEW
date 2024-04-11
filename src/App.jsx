@@ -16,6 +16,8 @@ import StarRatingApp from './StarRatingApp'
 import FavoritePage from './FavoritePage';
 import Javascript from './Javascript';
 import QuizApp from './QuizApp';
+import Quiz from './Quiz';
+import Assignmentt from './Assignmentt';
  
 
 export default function() {
@@ -27,7 +29,7 @@ export default function() {
     <Routes> 
          <Route path="/" element={<Dashb/>}/>
          <Route path="/quiz" element={<QuizApp/>} />
-         {/* <Route path="/Individual" element={<Individual/>} /> */}
+         <Route path="/Quizt" element={<Quiz/>} />
          <Route path="/html" element={<Html/>} />
          <Route path="/Module" element={<Module/> }/>
          <Route path="/Language" element={<Language/>}/>
@@ -35,6 +37,7 @@ export default function() {
          <Route path="/favorites" element={<FavoritePage/>}/>
         <Route path="/javascript" element={<Javascript/> }/>
          <Route path="/Dropmenu" element={<Dropmenu/> }/>
+         <Route path="/Assignmentt" element={<Assignmentt/> }/>
         
          <Route path="/Scond" element={<Scond/> }/>
          <Route path="/Register" element={<Register/> }/>

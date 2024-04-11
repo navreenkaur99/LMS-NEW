@@ -18,7 +18,7 @@ export default function Ui() {
       id: 1,
       name: "HTML Course",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G7K4-q2sSnpAobvMWegjHK4f0NmrzniwRQ&usqp=CAU",  
-      link: "/Module"
+      link: "/Scond"
     },
     { 
       id: 2,
@@ -111,7 +111,7 @@ export default function Ui() {
               if (filterCourses(course.name)) {
                 // Set the flag to true if at least one course is found
                 coursesFound = true;
-                return (
+ return (
                   <Col key={course.id} style={{ marginBottom: "20px" }}>
                     <Card style={{ width: '18rem' }}>
                       <Link to={course.link}>
