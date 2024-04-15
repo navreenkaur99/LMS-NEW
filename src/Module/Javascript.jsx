@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Nav, NavLink, Navbar,Carousel } from 'react-bootstrap';
 import QuizApp from './QuizApp';
-import Profile from './Profile';
+import Profile from '../Profile';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Html from './Html';
 import Quiz from './Quiz';

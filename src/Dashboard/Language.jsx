@@ -1,9 +1,9 @@
 import React from 'react'
-import Profile from './Profile'
+import Profile from '../Profile'
 import Card from "react-bootstrap/Card";
 import { Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import style from "./CSS/Ui.module.css";
+import style from "../CSS/Ui.module.css";
 // import { Link } from 'react-router-dom'; // Assuming you're using React Router
 
 

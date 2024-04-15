@@ -1,21 +1,21 @@
 import React from 'react'
- import Ui from './Ui'
+ import Ui from './Dashboard/Ui'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
 import Register from './Pages/Register'
-import Scond from './Scond'
-import Html from './Html'
-  import Module from './Module'
+import Scond from './Module/Scond'
+import Html from './Module/Html'
+  import Module from './Module/Module'
 import Dropmenu from './Dropmenu'
-import Language from './Language'
-import StarRatingApp from './StarRatingApp'
-  import Pdf from './Pdf'
-import FavoritePage from './FavoritePage';
-import Javascript from './Javascript';
-import QuizApp from './QuizApp';
-import Quiz from './Quiz';
-import Assignmentt from './Assignmentt';
-import Login from './Login'
+import Language from './Dashboard/Language'
+import StarRatingApp from './Dashboard/StarRatingApp'
+  import Pdf from './Module/Pdf'
+import FavoritePage from './Dashboard/FavoritePage';
+import Javascript from './Module/Javascript';
+import QuizApp from './Module/QuizApp';
+import Quiz from './Module/Quiz';
+import Assignmentt from './Module/Assignmentt';
+import Login from './Pages/Login'
 import Dashb from './Pages/Dashb';
 // import Profile from './Profile';
 // import Registration from './Registration';

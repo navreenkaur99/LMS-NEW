@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import StarRatingApp from "./StarRatingApp";
-import Profile from "./Profile";
-import style from "./CSS/Ui.module.css";
+import Profile from "../Profile";
+import style from "../CSS/Ui.module.css";
 import FavoritePage from "./FavoritePage"; 
 
 export default function Ui() {

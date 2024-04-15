@@ -182,7 +182,7 @@ import { Container, Row, Col, Nav,NavLink,Navbar, Button, Collapse,Table } from 
 import React, { useState } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Profile from './Profile';
+import Profile from '../Profile';
 
 export default function Module() {
   const [open, setOpen] = useState(false);

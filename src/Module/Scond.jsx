@@ -3,7 +3,7 @@ import { Container, Row, Col, Nav, NavLink, Navbar,Card } from 'react-bootstrap'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import QuizApp from './QuizApp';
-import Profile from './Profile';
+import Profile from '../Profile';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Html from './Html';
 import Quiz from './Quiz';
@@ -224,7 +224,7 @@ export default function Module() {
                 
               </div>)}
               {activeModule === "quiz" && <p>
-                <QuizApp /></p>}
+                <QuizApp markAsRead={() => handleMarkAsRead("quiz")} /></p>}
               {activeModule === "assignment" && <p><Html/></p>}
               {activeModule === "chapter2" && <p><Quiz markAsRead={() => handleMarkAsRead("chapter2")}/>  </p>}
 
