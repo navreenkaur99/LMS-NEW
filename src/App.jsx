@@ -2,15 +2,12 @@ import React from 'react'
  import Ui from './Ui'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
-import Dashb from './Dashb'
-import Register from './Register'
+import Register from './Pages/Register'
 import Scond from './Scond'
 import Html from './Html'
   import Module from './Module'
 import Dropmenu from './Dropmenu'
 import Language from './Language'
-// import Individual from './Individual'
-// import Tutorial from './Tutorial'
 import StarRatingApp from './StarRatingApp'
   import Pdf from './Pdf'
 import FavoritePage from './FavoritePage';
@@ -18,6 +15,9 @@ import Javascript from './Javascript';
 import QuizApp from './QuizApp';
 import Quiz from './Quiz';
 import Assignmentt from './Assignmentt';
+import Login from './Login'
+import Dashb from './Pages/Dashb';
+// import Profile from './Profile';
 // import Registration from './Registration';
  
 
@@ -44,7 +44,7 @@ export default function() {
          <Route path="/Register" element={<Register/> }/>
          <Route path="/Ui" element={<Ui/> }/>
           <Route path="/StarRatingApp" element={<StarRatingApp/>}/>
-          {/* <Route path="/Registration" element={<Registration/>}/> */}
+          <Route path="/login" element={<Login/>}/>
         
 
     </Routes>

@@ -10,7 +10,7 @@ import style from "./CSS/Ui.module.css";
 import FavoritePage from "./FavoritePage"; 
 
 export default function Ui() {
-  const [searchQuery, setSearchQuery] = useState("");
+   const [searchQuery, setSearchQuery] = useState("");
   const [favorites, setFavorites] = useState([]);
 
   const courses = [

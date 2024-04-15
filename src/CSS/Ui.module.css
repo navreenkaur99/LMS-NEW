@@ -1,6 +1,7 @@
 .img {
 width:80%;
-margin-left:64px
+margin-left:40px
+
 }
 .space{
     margin-top: 20px;
@@ -64,8 +65,8 @@ align-items: center;
     align-items: flex-end;
     border-radius: 0.5rem; /* You might need to adjust this value based on your requirements */
     /* padding: 0.5rem; Assuming you want a padding of 0.5rem on all sides */
-     width: 60%;/* Assuming you want the element to take up the full width */
-   left: 80%;
+     width: 0%;/* Assuming you want the element to take up the full width */
+   left: 115%;
 }
 .down{
     margin-top: 10px; 
@@ -105,5 +106,105 @@ align-items: center;
 
 
 
+
+
+  /* .img
+{
+ max-height: 400px;
+ max-width: 300px;
+ border-radius: 10%;
+ 
+
+    
+} */
+/* .img1
+{
+ max-height: 400px;
+ max-width: 300px;
+ border-radius: 10%;
+ 
+
+    
+}
+.form
+{
+    min-height: 100vh;
+    min-width: 50vh;
+
+}
+.top
+{
+    margin-top: 10px;
+}
+.heading
+{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #581c87;
+    margin-left: 85px;
+    font-size: 40px;
+}
+.button1
+{
+    margin-top: 25px;
+    margin-left: 350px;
+    ;
+}
+
+.card
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 94vh;
+   
+   
+    
+}
+.background{
+    background-color:#FAF9F6;
+    height: 100vh;
+    width: 100%;
+}
+  .ccard
+  {
+    min-width: 100vh;
+    min-height: 50vh;
+    border-radius: 4%;
+    background-color: rgba(255, 255, 255, 0.8); 
+    
   
+  }
+  .cardbody
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .p{
+    
+    
+    margin-left: 8px;
+    color: black;
+    cursor: pointer;
+  }
   
+  .p:hover {
+    color: blue ; 
+  }
+  label{
+    max-width: 20cm;
+
+  }
+  .alert
+  {
+    color:red;
+    margin-left: 6px;
+    opacity: 85%;
+    
+  }
+
+  
+   */
