@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
-import style from './CSS/Ui.module.css';
+import style from '../CSS/Ui.module.css';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
