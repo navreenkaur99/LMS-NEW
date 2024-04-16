@@ -87,7 +87,9 @@ const QuizApp = ({ markAsRead }) => {
             ))}
           </Form>
           {currentQuestion < questions.length - 1 && (
-            <Button onClick={handleNextQuestion}>Next</Button>
+            <Button 
+            style={{backgroundColor:"#294573",color:"white"}}
+            onClick={handleNextQuestion}>Next</Button>
           )}
           {currentQuestion === questions.length - 1 && (
             <Button onClick={handleSubmit}>Submit</Button>

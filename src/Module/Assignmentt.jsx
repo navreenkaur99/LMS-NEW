@@ -15,13 +15,32 @@ const Assignment = ({ markAsRead }) => {
   const [answers, setAnswers] = useState(Array(questions.length).fill(''));
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (answers.some(answer => answer.trim() === '')) {
+      setError('Please answer all questions before submitting.');
+      return;
+    }
+    
     setSubmitted(true);
+  
     // Call the markAsRead function passed as a prop
     markAsRead();
   };
+  
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (selectedOptions.some(option => option.trim() === '')) {
+  //     setErrorMessage('Please select an option for all questions before submitting.');
+  //     return;
+  //   }
+    
+  //   setSubmitted(true);
+
+  //   // Call the markAsRead function passed as a prop
+  //   markAsRead();
+  // };
 
   const handleNextQuestion = () => {
     // Check if the answer for the current question is empty

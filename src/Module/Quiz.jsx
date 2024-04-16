@@ -121,18 +121,21 @@ const Quiz = ({ markAsRead }) => {
           <Form>
             {questions[currentQuestion].options.map((option, index) => (
               <Form.Check
+              
                 key={index}
                 type="radio"
                 id={`option${index}`}
                 label={option}
                 value={option}
-                checked={selectedOptions[currentQuestion] === option}
+                checked={selectedOptions[currentQuestion] === option} 
                 onChange={handleOptionChange}
               />
             ))}
           </Form>
           {currentQuestion < questions.length - 1 && (
-            <Button onClick={handleNextQuestion}>Next</Button>
+            <Button onClick={handleNextQuestion}
+             style={{backgroundColor:"#294573",color:"white"}}
+            >Next</Button>
           )}
           {currentQuestion === questions.length - 1 && (
             <Button onClick={handleSubmit}>Submit</Button>

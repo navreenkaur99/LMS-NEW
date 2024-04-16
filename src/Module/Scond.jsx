@@ -66,11 +66,12 @@ export default function Module() {
     <>
       <Profile />
       <h5 style={{marginTop:"20px",marginBottom:"20px",display:'flex'}}> HTML
-       <Card style={{width:"190px",height:"40px",marginLeft:"20px"}}>
+       {/* <Card style={{width:"190px",height:"40px",marginLeft:"20px"}}>
       <Card.Text style={{marginLeft:"25px",marginTop:"7px"}}>
         Basic level
       </Card.Text>
-    </Card></h5>
+    </Card></h5> */}
+    </h5>
       <Container fluid>
         <Row style={{ display: "flex" }}>
           <Col md={3} id="sidebar">
@@ -219,13 +220,15 @@ export default function Module() {
                   This browser does not support PDFs. Please download the PDF to view it.
                  </iframe>
                  {activeModule === "tags" && !isRead.tags && (
-                    <button onClick={() => handleMarkAsRead("tags")}>Mark as Read</button>
+                    <button 
+                    style={{backgroundColor:"#294573",color:"whitesmoke" , justifyContent: "flex-end"}}
+                    onClick={() => handleMarkAsRead("tags")}>Mark as Read</button>
                   )}
                 
               </div>)}
               {activeModule === "quiz" && <p>
                 <QuizApp markAsRead={() => handleMarkAsRead("quiz")} /></p>}
-              {activeModule === "assignment" && <p><Html/></p>}
+              {activeModule === "assignment" && <p><Html markAsRead={() => handleMarkAsRead("assignment")}/></p>}
               {activeModule === "chapter2" && <p><Quiz markAsRead={() => handleMarkAsRead("chapter2")}/>  </p>}
 
               {activeModule === "Assignmentt" && (
