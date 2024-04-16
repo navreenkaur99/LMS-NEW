@@ -103,7 +103,7 @@ const Assignment = ({ markAsRead }) => {
               style={{ marginTop: "20px", marginLeft: "50px", backgroundColor: "#294573", color: "white" }}
               disabled={submitted}
             >
-              Submit
+              Submit 
             </button>
           )}
         </form>

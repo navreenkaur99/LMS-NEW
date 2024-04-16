@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaCheck } from 'react-icons/fa'; // Import the FaCheck icon from Font Awesome
-
+import pdf from '../assets/html.pdf'
 const Pdf = () => {
   const [isRead, setIsRead] = useState(false);
 
@@ -8,13 +8,14 @@ const Pdf = () => {
     setIsRead(true);
     // Perform any additional logic, such as updating a database or state
   };
-
+ 
   return (
     <div>
       <div style={{ width: '100%', height: '800px' }}>
         <iframe
           title="PDF Viewer"
-          src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+          //src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
+          src={pdf}
           width="100%"
           height="100%"
         >
