@@ -1,157 +1,149 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Image, Card, Form, Button } from 'react-bootstrap';
-import style from '../CSS/Ui.module.css';
-import { useNavigate } from 'react-router-dom';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { NavLink, useNavigate } from 'react-router-dom';
+// import style from './CSS/Ui.module.css';
+
+import style from '../CSS/Ui.module.css'
 import * as Yup from 'yup';
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
 
-export default function LoginPage() {
-  const [isHovered, setIsHovered] = useState(false);
-  const [pass, setPass] = useState('password');
-  const [iconColor, setIconColor] = useState('currentColor');
-  const [buttonStatus, setButtonStatus] = useState(false);
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [error, setError] = useState({ password: '', email: '' });
 
-  const navigate = useNavigate();
+export default function Dashb() {
+    // const [isHovered, setIsHovered] = useState(false);
+    const [formData, setFormData] = useState({
+        email: '',
+        password: '',
+    });
+    const [errors, setErrors] = useState({ email: '', password: '' });
+    const navigate = useNavigate();
+      
+    // const handleHover = () => {
+    //     setIsHovered(true);
+    // };
 
-  const handleHover = () => {
-    setIsHovered(true);
-  };
+    // const handleMouseLeave = () => {
+    //     setIsHovered(false);
+    // };
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
+    const validationSchema = Yup.object().shape({
+        email: Yup.string().email('Invalid email').required('Email is required'),
+        password: Yup.string()
+            .required('Password is required')
+            .matches(/.*[0-9].*/, 'Password must contain at least one number'),
+    });
 
-  const handlleClick = () => {
-    setIconColor(iconColor === 'currentColor' ? 'Darkblue' : 'currentColor');
-    setPass(pass === 'password' ? 'text' : 'password');
-  };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            await validationSchema.validate(formData, { abortEarly: false });
+            // Validation passed, do something (e.g., login)
+            console.log('Form data:', formData);
+            navigate("/Ui"); // Navigate to "/Ui" route after successful form submission
+        } catch (validationErrors) {
+            // Validation failed, set error messages
+            const newErrors = {};
+            validationErrors.inner.forEach((error) => {
+                newErrors[error.path] = error.message;
+            });
+            setErrors(newErrors);
+        }
+    };
+    const cardStyle = {
+        backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust the alpha value for transparency
+        border: 'none', // Remove border if needed
+        // width: '300px' // Adjust width as needed
+      };
+    
+    return (
+        <div style={{ backgroundImage: 'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pJQypNM4pvdYFEdb_8T2Vcl1TFa13XCPOA&s)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+            <Container className={style.root}>
+                <div className="transparent-card-container">
+                    <Card style={cardStyle}>
+                        <Card.Body className={style.card}>
+                            <Row>
+                                <Col>
+                                        <Image className={style.img} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmXWk9i9hpjeNrkkoll1Bld0PuwGKzz7X7LQ&usqp=CAU" />
+                                    <Image className={style.img} src="https://rukminim2.flixcart.com/image/850/1000/k8q8nm80/poster/s/r/w/small-motivational-poster-for-study-room-motivational-poster-for-original-imafqzjf36re9jgh.jpeg?q=90&crop=false" thumbnail />
+                                </Col>
+                                <Col>
+                                    <header>
+                                        <h2 className={style.header}>Log in to your account</h2>
+                                    </header>
+                                    <Form onSubmit={handleSubmit}>
+                                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                                            
+                                            <Form.Control
+                                                type="email"
+                                                placeholder="Enter email"
+                                                name="email"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                isInvalid={!!errors.email}
+                                                
+                                            />
+                                            
+                                            <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+                                        </Form.Group>
+                                        <Form.Group className="mb-3" controlId="formBasicPassword">
+                                            <Form.Control
+                                                type="password"
+                                                placeholder="Password"
+                                                name="password"
+                                                value={formData.password}
+                                                onChange={handleChange}
+                                                isInvalid={!!errors.password}
+                                            />
+                                            <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+                                        </Form.Group>
+                                        <div className="d-grid gap-2">
+                                        <Button type="submit"
+                                            style={{backgroundColor:"#294573",color:"white",marginTop:"20px"}}
+                                            variant="primary">
+                                                Log in
+                                            </Button>
 
-    try {
-      await validationSchema.validate(formData, { abortEarly: false });
-      setError({ email: '', password: '' });
-      setButtonStatus(true);
-    } catch (errors) {
-      const newError = {};
-      errors.inner.forEach((err) => {
-        newError[err.path] = err.message;
-      });
-      setError(newError);
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const buttonStyle = {
-    width: '12vh',
-    transition: 'background-color 0.3s, border-color 0.3s',
-  };
-
-  const validationSchema = Yup.object({
-    email: Yup.string()
-      .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Invalid email format')
-      .required('Please enter email'),
-
-    password: Yup.string().required('Please enter password'),
-  });
-
-  return (
-    <>
-      <div
-        style={{
-          backgroundImage:
-            'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pJQypNM4pvdYFEdb_8T2Vcl1TFa13XCPOA&s)',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        }}
-      >
-        <Container className={style.root}>
-          <div className="transparent-card-container">
-            <Card>
-              <Card.Body>
-                <Row>
-                  <Col>
-                    <span>
-                      <Image
-                        className={style.img}
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmXWk9i9hpjeNrkkoll1Bld0PuwGKzz7X7LQ&usqp=CAU"
-                      />
-                    </span>
-                    <Image
-                      className={style.img}
-                      src="https://rukminim2.flixcart.com/image/850/1000/k8q8nm80/poster/s/r/w/small-motivational-poster-for-study-room-motivational-poster-for-original-imafqzjf36re9jgh.jpeg?q=90&crop=false"
-                      thumbnail
-                    />
-                  </Col>
-                  <Col>
-                    <h2 className={style.heading}>Login into your account</h2>
-                    <Form onSubmit={handleSubmit}>
-                      <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                          type="email"
-                          placeholder="Enter email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          name="email"
-                        />
-                        <Form.Text className="text-danger">{error.email}</Form.Text>
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                          type={pass}
-                          placeholder="Password"
-                          value={formData.password}
-                          onChange={handleChange}
-                          name="password"
-                        />
-                        <Form.Text className="text-danger">{error.password}</Form.Text>
-                      </Form.Group>
-
-                      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Remember me" />
-                      </Form.Group>
-
-                      <Button
-                        type="submit"
-                        style={buttonStyle}
-                        onMouseEnter={handleHover}
-                        onMouseLeave={handleMouseLeave}
-                        variant={isHovered ? 'primary' : 'secondary'}
-                        disabled={!buttonStatus}
-                      >
-                        Login
-                      </Button>
-                    </Form>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
-          </div>
-        </Container>
-      </div>
-    </>
-  );
+                                            {/* <Button type="submit" 
+                                            style={{marginTop:"20px"}}
+                                             onMouseEnter={handleHover} onMouseLeave={handleMouseLeave} variant={isHovered ? 'primary' : 'secondary'}>
+                                                Login
+                                            </Button> */}
+                                        </div>
+                                    </Form>
+                                    <div style={{marginTop:"20px"}}>
+                                        <NavLink to="/Register">Not have account? Register</NavLink>
+                                    </div>
+                                </Col>
+                            </Row>
+                        </Card.Body>
+                    </Card>
+                </div>
+            </Container>
+        </div>
+    );
 }
 
 
 
 
-// import { useState } from 'react'
-// import { Container, Col, Row, Image, Card, CardBody } from 'react-bootstrap'
-// import style from "./CSS/Ui.module.css"
-// import { useNavigate } from 'react-router-dom';
-// import * as Yup from 'yup'
-// export default function LoginPage() {
+// import React, { useState } from 'react';
+// import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+// import { NavLink } from 'react-router-dom';
+// import style from './CSS/Ui.module.css';
+// import * as Yup from 'yup';
+// import Image from "react-bootstrap/Image";
+// import Card from "react-bootstrap/Card";
 
+
+// export default function Dashb() {
 //     const [isHovered, setIsHovered] = useState(false);
 
 //     const handleHover = () => {
@@ -168,73 +160,46 @@ export default function LoginPage() {
 //         width: '12vh',
 //         transition: 'background-color 0.3s, border-color 0.3s'
 //       };
-
-//     const [pass, setpass] = useState("password");
-
-//     const [iconColor, seticonColor] = useState("currentColor")
-
-//     const handlleClick = () => {
-//         seticonColor(iconColor === "currentColor" ? "Darkblue" : "currentColor");
-//         setpass(pass === "password" ? "text" : "password")
-//     }
-
-  
-//     const [buttonStatus, setbuttonStatus] = useState(false);
-//     const [buttonClick, setbuttonClick] = useState(true);
-//     const navigate = useNavigate();
+//       const [pass, setpass] = useState("password");
 
 
-//     const [formData, setformdata] = useState({
-//         email: "",
-//         password: "",
-//     })
-
-//     const [error, seterror] = useState({ password: '', email: '' });
-//     const validationSchema = Yup.object({
-//         email: Yup.string()
-
-//             .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, "Invaild email format")
-//             .required("Please enter email"),
-
-//         password: Yup.string()
-
-            
-//             .required("Please enter password")
-
+ 
+//     const [formData, setFormData] = useState({
+//         email: '',
+//         password: '',
 //     });
 
+//     const [errors, setErrors] = useState({ email: '', password: '' });
 
-
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-
-//         try {
-//             await validationSchema.validate(formData, { abortEarly: false })
-//             seterror({ email: '', password: '' });
-//             setbuttonStatus(true)
-
-//         } catch (errors) {
-
-
-//             const newerror = {}
-
-//             errors.inner.forEach((err) => {
-//                 newerror[err.path] = err.message;
-//             });
-//             seterror(newerror);
-
-//         }
-//     };
-
-
-
+//     const validationSchema = Yup.object().shape({
+//         email: Yup.string().email('Invalid email').required('Email is required'),
+//         password: Yup.string()
+//             .required('Password is required')
+//             .matches(/.*[0-9].*/, 'Password must contain at least one number'),
+//     });
 
 //     const handleChange = (e) => {
 //         const { name, value } = e.target;
+//         setFormData({
+//             ...formData,
+//             [name]: value,
+//         });
+//     };
 
-//         setformdata({ ...formData, [name]: value });
-
-
+//     const handleSubmit = async (e) => {
+//         e.preventDefault();
+//         try {
+//             await validationSchema.validate(formData, { abortEarly: false });
+//             // Validation passed, do something (e.g., login)
+//             console.log('Form data:', formData);
+//         } catch (validationErrors) {
+//             // Validation failed, set error messages
+//             const newErrors = {};
+//             validationErrors.inner.forEach((error) => {
+//                 newErrors[error.path] = error.message;
+//             });
+//             setErrors(newErrors);
+//         }
 //     };
 //     const cardStyle = {
 //         backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust the alpha value for transparency
@@ -242,21 +207,17 @@ export default function LoginPage() {
 //         // width: '300px' // Adjust width as needed
 //     };
 
+    
 
 //     return (
-//         <>
-
-
-//                 <div style={{ backgroundImage: 'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pJQypNM4pvdYFEdb_8T2Vcl1TFa13XCPOA&s)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-                
-//                     {/* <div style={backgroundOverlay}></div> */}
-
-//                     <Container className={style.root}>
-//                         <div className="transparent-card-container">
-//                         <Card style={cardStyle}>
-//                             <CardBody className={style.card}>
-
-//                         <Row >
+//         <div style={{ backgroundImage: 'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pJQypNM4pvdYFEdb_8T2Vcl1TFa13XCPOA&s)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+//             <Container className={style.root}>
+//                 <div className="transparent-card-container">
+//                 <Card style={cardStyle}>
+//       {/* <Card> */}
+//           <Card.Body className={style.card}>
+     
+//                     <Row >
 //                     <Col>
 //               <span> 
 //                 <Image className={style.img}  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmXWk9i9hpjeNrkkoll1Bld0PuwGKzz7X7LQ&usqp=CAU"/></span>
@@ -266,93 +227,47 @@ export default function LoginPage() {
 //                   thumbnail
 //                 />
 //               </Col>
-//               {/* </Row> */}
 
-//             <Col>
-                       
-                          
-
-//                             {/* <div className={`card-body ${style.cardbody}`}> */}
-
-
-
-
-                                   
-                                    
-//                                     <Row>
-                               
-//                                     <h2 className={style.heading}>Login into your account</h2>
-
-//                                         <form className='form' style={{ marginLeft: "20px", marginTop: "5vh" }} onSubmit={handleSubmit} >
-
-//                                             <div
-//                                                 style={{ marginBottom: "20px" }} className="form-floating" >
-//                                                 <input type="email" name='email' className="form-control" id="floatingInput" value={formData.email} onChange={handleChange} />
-
-//                                                 <label htmlFor="floatingInput">
-//                                                     <Row>
-
-//                                                         <Col xs={2} style={{ marginTop: "3px", padding: "0", paddingLeft: "4px" }}><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" className="bi bi-envelope-fill" viewBox="0 0 16 16">
-//                                                             <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414zM0 4.697v7.104l5.803-3.558zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586zm3.436-.586L16 11.801V4.697z" />
-//                                                         </svg></Col>
-//                                                         <Col xs={10} style={{ padding: "0", paddingLeft: "10px" }}>Enter Email</Col>
-//                                                     </Row>
-
-
-
-//                                                 </label>
-//                                                 {error.email && <div className={style.alert} >{error.email}</div>}
-//                                             </div>
-
-//                                             <div className="form-floating">
-
-//                                                 <input type={pass} name='password' className="form-control" id="floatingInput" value={formData.password} onChange={handleChange} />
-//                                                 <label className={style.label}>
-//                                                     <Row>
-
-//                                                         <Col xs={1} style={{ marginTop: "4px", padding: "0", paddingLeft: "5px" }}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-lock-fill" viewBox="0 0 16 16">
-//                                                             <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2" />
-//                                                         </svg></Col><Col xs={11} style={{ marginBottom: "10px", padding: "0", paddingLeft: "15px" }}> Enter Password</Col >
-
-//                                                     </Row>
-
-
-
-
-//                                                 </label>
-//                                                 <svg onClick={() => {
-//                                                     handlleClick();
-
-//                                                 }} style={{ cursor: "pointer", marginLeft: "52vh", transform: "translateY(-200%)", opacity: "80%" }} xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill={iconColor} className="bi bi-eye-fill" viewBox="0 0 16 16">
-//                                                     <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0" />
-//                                                     <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7" />
-//                                                 </svg>
-//                                                 {error.password && <div className={style.alert} style={{ transform: "translateY(-80%)", }} >{error.password}</div>}
-
-
-//                                             </div>
-
-//                                             <div style={{ display: "flex", alignItems: "center", marginBottom: "5px", marginLeft: "10px", transform: "translateY(-60%)" }}>
-//                                                 <input type="checkbox" style={{ marginRight: "10px", cursor: "pointer" }} />
-//                                                 <span>Remember me</span>
-//                                             </div>
-
-//                                             <div style={{ transform: "translateY(-30%)" }} >
-//                                                 <span className={style.p} onClick={() => {
-//                                                     navigate("/forgot")
-//                                                 }}>Forgot Password </span><span>|</span><span onClick={() => {
-//                                                     navigate("/registration")
-//                                                 }} className={style.p} >Don't have an account? Register here</span>
-//                                             </div>
-
-
-//                                             <div className={style.button1}>
-//                                                 <button type='submit' onClick={() => {
+            
+//                         {/* <Col xs={12} sm={8} md={6} lg={4}> */}
+                            
+//                             <Col>
+//                             <Row>
+//                             {/* <div className={`card ${style.card}`}> */}
+//                                  {/* <div className="card-body"> */}
+//                                     <header>
+//                                         <h1 className={style.header}>Sign in to your account</h1>
+//                                     </header>
+//                                     <Form onSubmit={handleSubmit}>
+//                                         <Form.Group className="mb-3" controlId="formBasicEmail">
+//                                             <Form.Control
+//                                                 type="email"
+//                                                 placeholder="Enter email"
+//                                                 name="email"
+//                                                 value={formData.email}
+//                                                 onChange={handleChange}
+//                                                 isInvalid={!!errors.email}
+//                                             />
+//                                             <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
+//                                         </Form.Group>
+//                                         <Form.Group className="mb-3" controlId="formBasicPassword">
+//                                             <Form.Control
+//                                                 type="password"
+//                                                 placeholder="Password"
+//                                                 name="password"
+//                                                 value={formData.password}
+//                                                 onChange={handleChange}
+//                                                 isInvalid={!!errors.password}
+//                                             />
+//                                             <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
+//                                         </Form.Group>
+//                                         <div className="d-grid gap-2">
+//                                         <button type='submit' onClick={() => {
 //                                                     if (buttonStatus === true) {
 //                                                         setbuttonClick(false)
 //                                                         setTimeout(() => {
 //                                                             navigate("/Ui")
-//                                                         }, 3000);
+//                                                         });
 //                                                     }
 //                                                 }} size="lg"
                                                 
@@ -370,27 +285,115 @@ export default function LoginPage() {
 //                                                 >Login</button>
 
 
+//                                             {/* <Button variant="primary" type="submit" href='/Ui' >
+//                                                 Login
+//                                             </Button> */}
+//                                         </div>
+//                                     </Form>
+//                                     <div>
+//                                         <NavLink to="/Register">Not have account? Register</NavLink>
+                                
+//                                     </div>
+//                                     </Row>
 
-
-
-//                                             </div>
-//                                         </form>
-//                                 </Row>
-//                                 </Col>
+//                                 {/* </div> */}
 //                             {/* </div> */}
-//                             {/* </Col> */}
-//                             </Row>
-//                             </CardBody>
-//                             </Card>
-//                         </div>
-
-
-//                     </Container>
+//                         </Col>
+//                     </Row>
+//                     </Card.Body>
+//                     </Card>
 //                 </div>
+//             </Container>
+//         </div>
+//     );
+// }
 
-              
-//         </>
 
-//     )
 
+// import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+// import { Table, Row, Col, Container } from "react-bootstrap";
+// import React from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import Form from "react-bootstrap/Form";
+// import Image from "react-bootstrap/Image";
+// import { Link, NavLink } from "react-router-dom";
+// import style from "./CSS/Ui.module.css"
+// import { useState } from "react";
+// export default function Dashb() {
+//   const[buttonClicked, setbuttonClicked] = useState(true);
+//   const cardStyle = {
+//     backgroundColor: 'rgba(255, 255, 255, 0.5)', // Adjust the alpha value for transparency
+//     border: 'none', // Remove border if needed
+//     // width: '300px' // Adjust width as needed
+//   };
+
+// return (
+//     <>
+//       <div style={{backgroundImage:'URL(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5pJQypNM4pvdYFEdb_8T2Vcl1TFa13XCPOA&s)',backgroundRepeat:"no-repeat",backgroundSize:"cover"}}> 
+//            <Container  className={style.root}>
+//       <div className="transparent-card-container">
+//        <Card style={cardStyle}>
+//       {/* <Card> */}
+//           <Card.Body className={style.card}>
+//             <Row>
+//               <Col>
+//               <span> 
+//                 <Image className={style.img}  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmXWk9i9hpjeNrkkoll1Bld0PuwGKzz7X7LQ&usqp=CAU"/></span>
+
+//                 <Image className={style.img}
+//                   src="https://rukminim2.flixcart.com/image/850/1000/k8q8nm80/poster/s/r/w/small-motivational-poster-for-study-room-motivational-poster-for-original-imafqzjf36re9jgh.jpeg?q=90&crop=false"
+//                   thumbnail
+//                 />
+//               </Col>
+
+//               <Col>
+//                <Col>
+//                   <Row>
+
+//                     <header>
+//                 <h1 className={style.header}>        Sign in to your account</h1>
+//       </header>
+
+
+
+//                     {/* <Form.Label >Email id</Form.Label> */}
+//                     <Form.Control
+//                       required
+//                       type="text"
+//                       placeholder="Email"
+//                     />
+                   
+//                     <p>Enter the Email or Registered number</p>
+//                     {/* <Form.Label >Password</Form.Label> */}
+//                     <Form.Control
+//                       required
+//                       type="password"
+//                       placeholder="Password"
+//                     />
+//                       <Link to="/Ui">
+//                       <div className="d-grid gap-2">
+   
+        
+//       <Button style={{marginTop:"20px",}} variant="primary" onClick={()=>{}}>Login</Button>{' '}
+//       </div>
+//                       </Link> 
+                      
+//                       <NavLink to="/Register">
+//                       Not have account ?Register
+//                     </NavLink>
+//                   </Row>
+//                 </Col>
+//               </Col>
+//             </Row>
+//           </Card.Body>
+//         </Card>
+//         </div>
+//       </Container>
+//       </div>
+      
+
+//       {/* :   <ShimmerThumbnail height={250} rounded /> } */}
+//     </>
+//   );
 // }

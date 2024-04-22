@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate , NavLink} from 'react-router-dom';
 import * as Yup from 'yup';
 import style from '../CSS/Ui.module.css';
 import Image from "react-bootstrap/Image";
@@ -108,17 +108,19 @@ export default function Dashb() {
                                             />
                                             <Form.Control.Feedback type="invalid">{errors.confirmPassword}</Form.Control.Feedback>
                                         </Form.Group>
+                                     
                                         <div className="d-grid gap-2">
                                             <Button type="submit"
-                                            style={{backgroundColor:"#294573",color:"white",marginTop:"20px"}}
+                                            style={{backgroundColor:"#294573",color:"white",marginTop:"10px"}}
                                             variant="primary">
                                                 Sign up
                                             </Button>
                                         </div>
+                                        <div style={{marginTop:"10px"}}>
+                                        <NavLink to="/login">Already a Member ? Log in </NavLink>
+                                    </div>
                                     </Form>
-                                    {/* <div>
-                                        <NavLink to="/Register">Not have account? Register</NavLink>
-                                    </div> */}
+                                 
                                 </Col>
                             </Row>
                         </Card.Body>

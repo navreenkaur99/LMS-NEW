@@ -15,8 +15,12 @@ import Javascript from './Module/Javascript';
 import QuizApp from './Module/QuizApp';
 import Quiz from './Module/Quiz';
 import Assignmentt from './Module/Assignmentt';
-import Login from './Pages/Login'
-import Dashb from './Pages/Dashb';
+import Tags from  './Module/Tags'; 
+import Login from './Pages/Login';
+import Contactus from './Pages/Contactus';
+import { First } from 'react-bootstrap/esm/PageItem';
+import FirstPage from './Pages/FirstPage';
+import AboutUsPage from './Pages/AboutusPage';
 // import Profile from './Profile';
 // import Registration from './Registration';
  
@@ -28,7 +32,9 @@ export default function() {
     <BrowserRouter>
     
     <Routes> 
-         <Route path="/" element={<Dashb/>}/>
+    <Route path="/" element={<FirstPage/>}/>
+        
+         <Route path="/login" element={<Login/>}/>
          <Route path="/quiz" element={<QuizApp/>} />
          <Route path="/Quizt" element={<Quiz/>} />
          <Route path="/html" element={<Html/>} />
@@ -39,12 +45,13 @@ export default function() {
         <Route path="/javascript" element={<Javascript/> }/>
          <Route path="/Dropmenu" element={<Dropmenu/> }/>
          <Route path="/Assignmentt" element={<Assignmentt/> }/>
-        
+         <Route path="/Contact" element={<Contactus/> }/>
          <Route path="/Scond" element={<Scond/> }/>
          <Route path="/Register" element={<Register/> }/>
          <Route path="/Ui" element={<Ui/> }/>
           <Route path="/StarRatingApp" element={<StarRatingApp/>}/>
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/About" element={<AboutUsPage/>}/>
+          <Route path="/tags" element={<Tags/>}/>
         
 
     </Routes>

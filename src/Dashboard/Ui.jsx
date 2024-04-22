@@ -29,9 +29,10 @@ export default function Ui() {
     { 
       id: 3,
       name: "JavaScript Course",
-      image: "https://e0.pxfuel.com/wallpapers/769/212/desktop-wallpaper-ways-that-remote-tech-support-can-provide-fast-it-help-with-no-visit-needed-thumbnail.jpg", 
+      image: "https://mlyhfwsozyid.i.optimole.com/w:1920/h:1080/q:mauto/f:best/https://timezest.com/wp-content/uploads/How-To-Optimize-Your-Helpdesk-Starter-Pack-in-2022.png", 
+      // image: "https://e0.pxfuel.com/wallpapers/769/212/desktop-wallpaper-ways-that-remote-tech-support-can-provide-fast-it-help-with-no-visit-needed-thumbnail.jpg", 
       link: "/Module"
-    }
+    } 
   ];
 
   const toggleFavorite = (courseId) => {
@@ -57,7 +58,7 @@ export default function Ui() {
     <>
       <div style={{ backgroundColor: "#edfafa" }}>
         <Profile />
-        <div style={{ backgroundColor: "#edfafa" }} data-aos="fade-right">
+        <div style={{ backgroundColor: "#edfafa", marginLeft:"10px" }} data-aos="fade-right">
           <h4 className={style.heading}>Dashboard</h4>
           <Container>
             <Row className="justify-content-md-center">
@@ -92,7 +93,10 @@ export default function Ui() {
                 <Card style={{ width: '18rem' }}>
                   <Row>
                     <Col xs={6}>
-                      <Card.Img style={{ height:"7rem" }} variant="top" src="https://mlyhfwsozyid.i.optimole.com/w:1920/h:1080/q:mauto/f:best/https://timezest.com/wp-content/uploads/How-To-Optimize-Your-Helpdesk-Starter-Pack-in-2022.png" />
+                      <Card.Img style={{ height:"7rem" }} variant="top"  src="https://e0.pxfuel.com/wallpapers/769/212/desktop-wallpaper-ways-that-remote-tech-support-can-provide-fast-it-help-with-no-visit-needed-thumbnail.jpg" />
+      
+                      {/* // src="https://mlyhfwsozyid.i.optimole.com/w:1920/h:1080/q:mauto/f:best/https://timezest.com/wp-content/uploads/How-To-Optimize-Your-Helpdesk-Starter-Pack-in-2022.png" */}
+                       {/* /> */}
                     </Col>
                     <Col xs={6}>
                       <Card.Body>

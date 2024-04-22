@@ -9,10 +9,12 @@ import Html from './Html';
 import Quiz from './Quiz';
 import Assignmentt from './Assignmentt';
 import { FaCheck } from 'react-icons/fa'; 
+import Pdf from './Pdf';
+import style from '../CSS/Ui.module.css';
 
 export default function Module() {
   const [expanded, setExpanded] = useState(false);
-  const [activeModule, setActiveModule] = useState('chapter1');
+  const [activeModule, setActiveModule] = useState('first');
   const [completedModules, setCompletedModules] = useState(0);
   const [moduleCollapse, setModuleCollapse] = useState({
     module1: false,
@@ -65,14 +67,14 @@ export default function Module() {
   return (
     <>
       <Profile />
-      <h5 style={{marginTop:"20px",marginBottom:"20px",display:'flex'}}> HTML
+      {/* <h5 style={{marginTop:"20px",marginBottom:"20px",display:'flex'}}> HTML */}
        {/* <Card style={{width:"190px",height:"40px",marginLeft:"20px"}}>
       <Card.Text style={{marginLeft:"25px",marginTop:"7px"}}>
         Basic level
       </Card.Text>
     </Card></h5> */}
-    </h5>
-      <Container fluid>
+    {/* </h5> */}
+      <Container fluid style={{marginTop:"20px",marginBottom:"20px"}}>
         <Row style={{ display: "flex" }}>
           <Col md={3} id="sidebar">
             <Navbar style={{ borderRadius: "20px" }} expand="lg" expanded={expanded} className="flex-column align-items-start">
@@ -189,18 +191,24 @@ export default function Module() {
             </div>
             </Col>
             </Row>
-
+            {activeModule === "first" && (
+                <div style={{ width: '100%',height:"100%" ,marginTop:"0px"}} >
+                <center>  <h1 className={style.heading}>  WELCOME !!!
+</h1><h5>Please check our modules for your futher study and  gain knowledge about your course.
+ <br/> Best of Luck</h5> </center> </div>)}
             <div>
               {activeModule === "chapter1" && (
-                <div style={{ width: '100%',height:"400px" }}>
-                  <iframe
+                <div style={{ width: '100%',height:"100%" ,marginTop:"0px"}} >
+                  <p><Pdf/>
+</p>
+                                   {/* <iframe
                     title="PDF Viewer"
                     src="https://ww2.cs.fsu.edu/~faizian/cgs3066/resources/Lecture3-Intro%20to%20HTML.pdf"
                     width="100%"
                     height="100%"
                   >
                     This browser does not support PDFs. Please download the PDF to view it.
-                  </iframe>
+                  </iframe> */}
                   {activeModule === "chapter1" && !isRead.chapter1 && (
                     <button
                     style={{backgroundColor:"#294573",color:"whitesmoke" , justifyContent: "flex-end"}}
@@ -235,7 +243,7 @@ export default function Module() {
                 <Assignmentt markAsRead={() => handleMarkAsRead("Assignmentt")} />
               )}
             </div>
-            <hr />
+            {/* <hr /> */}
                      </Col>
         </Row>
       </Container>

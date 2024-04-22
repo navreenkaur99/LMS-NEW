@@ -1,3 +1,40 @@
+
+.image
+{
+    background-image:url('https://c4.wallpaperflare.com/wallpaper/731/144/1/map-technology-hands-laptop-wallpaper-preview.jpg') ;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 'center';
+    height: 85vh;
+    width: 100%;   
+} 
+.button2:hover {
+  background-color: rgb(37, 37, 37);
+  transition: background-color 0.3s;
+}
+.border {
+  border: 3px solid black;
+  padding: 20px; 
+  /* Add padding for better spacing */
+}
+
+
+
+.color{
+  background-color: rgb(203, 223, 245);
+}
+.logo
+{
+    max-width: 90px;
+    max-height: 90px;
+    /* transform: translateY(-40%) ; */
+    
+    transform: translateY(-15%);
+    padding:0px
+    
+}
+
+
 .img {
 width:80%;
 margin-left:40px
@@ -7,6 +44,10 @@ margin-left:40px
   background-color: red;
 }
 
+.spacef{
+  margin-top: 15px;
+}
+
 .space{
     margin-top: 20px;
 }
@@ -14,10 +55,13 @@ margin-left:40px
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
+    color: #294573;
+
 }
 .heading{
     margin-top: 20px;
     margin-bottom: 10px;
+    color: #294573;
 }
 .card{
     min-width: 500px;
@@ -69,8 +113,8 @@ align-items: center;
     align-items: flex-end;
     border-radius: 0.5rem; /* You might need to adjust this value based on your requirements */
     /* padding: 0.5rem; Assuming you want a padding of 0.5rem on all sides */
-     width: 0%;/* Assuming you want the element to take up the full width */
-   left: 115%;
+     width: 125px;/* Assuming you want the element to take up the full width */
+   left: 75%;
 }
 .down{
     margin-top: 10px; 
