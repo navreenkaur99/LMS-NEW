@@ -13,7 +13,7 @@ const Assignment = ({ markAsRead }) => {
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(''));
-  const [submitted, setSubmitted] = useState(false);
+
   const [error, setError] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,13 +48,7 @@ const Assignment = ({ markAsRead }) => {
       setError('Please answer the current question before proceeding.');
       return; // Don't proceed if the answer is empty
     }
-
-    // Clear error message if the answer is not empty
-    setError('');
-
-    // Proceed to the next question
-    setCurrentQuestionIndex(currentQuestionIndex + 1);
-  };
+ };
 
   const handlePreviousQuestion = () => {
     setCurrentQuestionIndex(currentQuestionIndex - 1);
@@ -67,17 +61,7 @@ const Assignment = ({ markAsRead }) => {
         <form onSubmit={handleSubmit}>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <p>{questions[currentQuestionIndex]}</p>
-          <ReactQuill
-            theme="snow"
-            value={answers[currentQuestionIndex]}
-            onChange={(value) => {
-              const newAnswers = [...answers];
-              newAnswers[currentQuestionIndex] = value;
-              setAnswers(newAnswers);
-            }}
-            disabled={submitted}
-          />
-          <div>
+         
             {currentQuestionIndex !== 0 && (
               <button
                 type="button"
