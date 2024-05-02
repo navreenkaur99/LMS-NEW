@@ -52,16 +52,6 @@ const Assignment = ({ markAsRead }) => {
         <form onSubmit={handleSubmit}>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <p>{questions[currentQuestionIndex]}</p>
-          <ReactQuill
-            theme="snow"
-            value={answers[currentQuestionIndex]}
-            onChange={(value) => {
-              const newAnswers = [...answers];
-              newAnswers[currentQuestionIndex] = value;
-              setAnswers(newAnswers);
-            }}
-            disabled={submitted}
-          />
           <div>
             {currentQuestionIndex !== 0 && (
               <button
