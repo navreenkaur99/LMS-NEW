@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; 
 
-const Assignment = ({ markAsRead }) => {
+const Assignment = () => {
   const questions = [
     " How do we insert a comment in HTML?",
     "How do you create nested web pages in HTML??",
@@ -22,10 +22,7 @@ const Assignment = ({ markAsRead }) => {
       return;
     }
     
-    setSubmitted(true);
-  
-    // Call the markAsRead function passed as a prop
-    markAsRead();
+   
   };
   const handleNextQuestion = () => {
     // Check if the answer for the current question is empty
@@ -52,16 +49,7 @@ const Assignment = ({ markAsRead }) => {
         <form onSubmit={handleSubmit}>
           {error && <p style={{ color: 'red' }}>{error}</p>}
           <p>{questions[currentQuestionIndex]}</p>
-          <ReactQuill
-            theme="snow"
-            value={answers[currentQuestionIndex]}
-            onChange={(value) => {
-              const newAnswers = [...answers];
-              newAnswers[currentQuestionIndex] = value;
-              setAnswers(newAnswers);
-            }}
-            disabled={submitted}
-          />
+        
           <div>
             {currentQuestionIndex !== 0 && (
               <button

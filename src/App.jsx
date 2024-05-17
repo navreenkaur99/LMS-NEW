@@ -23,7 +23,6 @@ import FirstPage from './Pages/FirstPage';
 import AboutUsPage from './Pages/AboutusPage';
 // import Profile from './Profile';
 // import Registration from './Registration';
- 
 
 export default function() {
   return (
@@ -48,12 +47,12 @@ export default function() {
          <Route path="/Contact" element={<Contactus/> }/>
          <Route path="/Scond" element={<Scond/> }/>
          <Route path="/Register" element={<Register/> }/>
-         <Route path="/Ui" element={<Ui/> }/>
+         <Route path="/dashboard" element={<Ui/> }/>
           <Route path="/StarRatingApp" element={<StarRatingApp/>}/>
           <Route path="/About" element={<AboutUsPage/>}/>
           <Route path="/tags" element={<Tags/>}/>
-        
-
+          <Route path="/profile" element={<Profile/>}/>
+         
     </Routes>
 </BrowserRouter>
       

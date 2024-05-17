@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 export default function FirstPage() {
   return (
-    <div data-aos="zoom-in-down" className={`${style.color} ${style.border}`}>
+    // <div data-aos="zoom-in-down" className={`${style.color} ${style.border}`}>
       <div className={style.color}>
         <div className="row position-relative">
           <div className="col-md-6">
@@ -74,7 +74,7 @@ export default function FirstPage() {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
       <footer className="mt-5">
       <Container 
       // style={{backgroundColor:"#294573",color:"white"}}

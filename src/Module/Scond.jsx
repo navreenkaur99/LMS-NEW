@@ -235,12 +235,12 @@ export default function Module() {
                 
               </div>)}
               {activeModule === "quiz" && <p>
-                <QuizApp markAsRead={() => handleMarkAsRead("quiz")} /></p>}
-              {activeModule === "assignment" && <p><Html markAsRead={() => handleMarkAsRead("assignment")}/></p>}
-              {activeModule === "chapter2" && <p><Quiz markAsRead={() => handleMarkAsRead("chapter2")}/>  </p>}
+                <QuizApp onClick={() => handleMarkAsRead("quiz")} /></p>}
+              {activeModule === "assignment" && <p><Html onClick={() => handleMarkAsRead("assignment")}/></p>}
+              {activeModule === "chapter2" && <p><Quiz onClick={() => handleMarkAsRead("chapter2")}/>  </p>}
 
               {activeModule === "Assignmentt" && (
-                <Assignmentt markAsRead={() => handleMarkAsRead("Assignmentt")} />
+                <Assignmentt onClick={() => handleMarkAsRead("Assignmentt")} />
               )}
             </div>
             {/* <hr /> */}

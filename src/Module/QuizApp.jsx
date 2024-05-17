@@ -19,7 +19,7 @@ const questions = [
   }
 ];
 
-const QuizApp = ({ markAsRead }) => {
+const QuizApp = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOptions, setSelectedOptions] = useState(new Array(questions.length).fill(''));
   const [showScore, setShowScore] = useState(false);
@@ -63,7 +63,7 @@ const QuizApp = ({ markAsRead }) => {
     }
     setShowScore(true);
     setSubmitted(true);
-    markAsRead();
+  
   };
 
   return (

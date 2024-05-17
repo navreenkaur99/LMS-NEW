@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import styles
 
-const Assignment = ({ markAsRead }) => {
+const Assignment = () => {
   const questions = [
     "How do we insert a comment in HTML?",
     "How do you create nested web pages in HTML?",
@@ -22,25 +22,9 @@ const Assignment = ({ markAsRead }) => {
       return;
     }
     
-    setSubmitted(true);
-  
-    // Call the markAsRead function passed as a prop
-    markAsRead();
+   
   };
   
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if (selectedOptions.some(option => option.trim() === '')) {
-  //     setErrorMessage('Please select an option for all questions before submitting.');
-  //     return;
-  //   }
-    
-  //   setSubmitted(true);
-
-  //   // Call the markAsRead function passed as a prop
-  //   markAsRead();
-  // };
 
   const handleNextQuestion = () => {
     // Check if the answer for the current question is empty

@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Document, Page } from 'react-pdf';
 import { pdfjs } from 'react-pdf';
@@ -8,24 +9,24 @@ import pdf from '/src/assets/HTML.pdf'
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
 
 export default function Pdf() {
-  const [numPages, setNumPages] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
+  // const [numPages, setNumPages] = useState(null);
+  // const [pageNumber, setPageNumber] = useState(1);
 
-  function onDocumentLoadSuccess({ numPages }) {
-    setNumPages(numPages);
-  }
+  // function onDocumentLoadSuccess({ numPages }) {
+  //   setNumPages(numPages);
+  // }
 
-  const goToPreviousPage = () => {
-    if (pageNumber > 1) {
-      setPageNumber(pageNumber - 1);
-    }
-  };
+  // const goToPreviousPage = () => {
+  //   if (pageNumber > 1) {
+  //     setPageNumber(pageNumber - 1);
+  //   }
+  // };
 
-  const goToNextPage = () => {
-    if (pageNumber < numPages) {
-      setPageNumber(pageNumber + 1);
-    }
-  };
+  // const goToNextPage = () => {
+  //   if (pageNumber < numPages) {
+  //     setPageNumber(pageNumber + 1);
+  //   }
+  // };
 
   return (
     <>
@@ -35,17 +36,18 @@ export default function Pdf() {
           <Document
 
             file={pdf}
-            onLoadSuccess={onDocumentLoadSuccess}
+            // onLoadSuccess={onDocumentLoadSuccess}
           >
-            <Page pageNumber={pageNumber} />
+            {/* <Page pageNumber={pageNumber} 
+            /> */}
           </Document>
         </div>
         <div>
-          <button onClick={goToPreviousPage}><FaArrowLeft /></button>
+          {/* <button onClick={goToPreviousPage}><FaArrowLeft /></button> */}
           <span style={{ marginLeft: "10px", marginRight: "10px" }}>
-            Page {pageNumber} of {numPages}
+            {/* Page {pageNumber} of {numPages} */}
           </span>
-          <button onClick={goToNextPage}><FaArrowRight /></button>
+          {/* <button onClick={goToNextPage}><FaArrowRight /></button> */}
         </div>
       </div>
     </>

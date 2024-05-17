@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+ import "bootstrap/dist/css/bootstrap.min.css";
 import { Table,Image} from "react-bootstrap";
 import { Nav } from 'react-bootstrap';
 import style from "./CSS/Ui.module.css";
-export default function Profile () {
-const [isOpen, setIsOpen] = useState(false);
+export default function Profile (email) {
+const [isOpen, setIsOpen] = useState(false); 
 return (
 
     <div style={{position:"relative",zIndex:"1"}}>
@@ -60,7 +60,7 @@ return (
                         </tr>
                         <tr >
                           <td>
-                      <Nav.Link href="/Ui">My submission</Nav.Link>
+                      <Nav.Link href="/dashboard">My submission</Nav.Link>
                       </td>
                         </tr>
                         <tr >
