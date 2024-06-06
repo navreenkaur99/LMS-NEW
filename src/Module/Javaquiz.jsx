@@ -3,19 +3,19 @@ import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 const questions = [
   {
-    question: 'What does CSS stand for?',
-    options: ['Cascading Style Sheets', 'Creative Style Sheets', 'Computer Style Sheets', 'Colorful Style Sheets'],
-    correctAnswer: 'Cascading Style Sheets'
+    question: 'What does OOP stand for in Java?',
+    options: ['Object Oriented Programming', 'Object Oriented Protocol', 'Object Oriented Process', 'Object Oriented Project'],
+    correctAnswer: 'Object Oriented Programming'
   },
   {
-    question: 'Which property is used to change the background color of an element?',
-    options: ['background-color', 'color', 'bgcolor', 'background'],
-    correctAnswer: 'background-color'
+    question: 'Which keyword is used to define a class in Java?',
+    options: ['class', 'Class', 'klass', 'cls'],
+    correctAnswer: 'class'
   },
   {
-    question: 'Which CSS property is used to control the text size?',
-    options: ['font-size', 'text-style', 'text-size', 'font-style'],
-    correctAnswer: 'font-size'
+    question: 'What is the default value of byte datatype in Java?',
+    options: ['0', '0.0', 'null', 'undefined'],
+    correctAnswer: '0'
   }
 ];
 
@@ -87,9 +87,7 @@ const QuizApp = ({ markAsRead }) => {
             ))}
           </Form>
           {currentQuestion < questions.length - 1 && (
-            <Button 
-            style={{backgroundColor:"#294573",color:"white"}}
-            onClick={handleNextQuestion}>Next</Button>
+            <Button onClick={handleNextQuestion}>Next</Button>
           )}
           {currentQuestion === questions.length - 1 && (
             <Button onClick={handleSubmit}>Submit</Button>
@@ -105,6 +103,3 @@ const QuizApp = ({ markAsRead }) => {
 };
 
 export default QuizApp;
-
-
- 

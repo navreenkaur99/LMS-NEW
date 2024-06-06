@@ -7,6 +7,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios"; // Import axios for HTTP requests
 import Profile from "../Profile";
 import StarRatingApp from "./StarRatingApp";
+import style from "../CSS/Ui.module.css";
 
 export default function Dashboard() {
   const [data, setData] = useState([]);
@@ -41,10 +42,17 @@ export default function Dashboard() {
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
-
   const filterCourses = (courseName) => {
-    return courseName.toLowerCase().includes(searchQuery.toLowerCase());
+    // Check if courseName is defined before applying toLowerCase()
+    if (courseName && typeof courseName === 'string') {
+      return courseName.toLowerCase().includes(searchQuery.toLowerCase());
+    }
+    return false; // Return false if courseName is undefined or not a string
   };
+  
+  // const filterCourses = (courseName) => {
+  //   return courseName.toLowerCase().includes(searchQuery.toLowerCase());
+  // };
 
   // const handleToggleFavorite = async (course) => {
   //   try {
@@ -86,6 +94,7 @@ export default function Dashboard() {
     <>
       <div style={{ backgroundColor: "#edfafa" }}>
         <Profile />
+        
         <Col xs={12} md={6}>
           <Form.Control
             type="text"
@@ -95,7 +104,8 @@ export default function Dashboard() {
             style={{ marginBottom: "10px" }}
           />
         </Col>
-        <h3>Explore our course</h3>
+        <h3 className={style.heading}>Active courses</h3>
+      
         {isLoading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -120,7 +130,9 @@ export default function Dashboard() {
                       </div>
                       <div className="card-body">
                         <p className="card-text">{item.para}</p>
-                        <StarRatingApp />
+                        <StarRatingApp initialRating={item.rating} cardId={item._id} />
+                       
+                        {/* <StarRatingApp   /> */}
                       </div>
                     </Card>
                   </Col>

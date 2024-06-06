@@ -1,58 +1,90 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Document, Page } from 'react-pdf';
-import { pdfjs } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import pdf from '/src/assets/HTML.pdf'   
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+import pdf from '/src/HTML.pdf';
 
-export default function Pdf() {
-  // const [numPages, setNumPages] = useState(null);
-  // const [pageNumber, setPageNumber] = useState(1);
+// LMS\src\HTML.pdf
 
-  // function onDocumentLoadSuccess({ numPages }) {
-  //   setNumPages(numPages);
-  // }
+export default function PdfContainer() {
+  const [numPages, setNumPages] = useState(null);
 
-  // const goToPreviousPage = () => {
-  //   if (pageNumber > 1) {
-  //     setPageNumber(pageNumber - 1);
-  //   }
-  // };
-
-  // const goToNextPage = () => {
-  //   if (pageNumber < numPages) {
-  //     setPageNumber(pageNumber + 1);
-  //   }
-  // };
+  function onDocumentLoadSuccess({ numPages }) {
+    setNumPages(numPages);
+  }
 
   return (
-    <>
-      
-      <div >
-        <div style={{ marginTop: '10px', marginBottom: '10px' }}>
-          <Document
-
-            file={pdf}
-            // onLoadSuccess={onDocumentLoadSuccess}
-          >
-            {/* <Page pageNumber={pageNumber} 
-            /> */}
-          </Document>
-        </div>
-        <div>
-          {/* <button onClick={goToPreviousPage}><FaArrowLeft /></button> */}
-          <span style={{ marginLeft: "10px", marginRight: "10px" }}>
-            {/* Page {pageNumber} of {numPages} */}
-          </span>
-          {/* <button onClick={goToNextPage}><FaArrowRight /></button> */}
-        </div>
-      </div>
-    </>
+    <div style={{ marginTop: '10px', justifyContent:"center", marginBottom: '10px', height: '300px', border: '1px solid #ccc', overflow: 'auto' }}>
+      <PdfViewer onDocumentLoadSuccess={onDocumentLoadSuccess} numPages={numPages} />
+    </div>
   );
 }
+
+function PdfViewer({ onDocumentLoadSuccess, numPages }) {
+  return (
+    <div style={{ width: '100%' }}>
+      <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess}>
+        {[...Array(numPages)].map((_, index) => (
+          <Page  key={`page_${index + 1}`} pageNumber={index + 1} width={800} />
+        ))}
+      </Document>
+    </div>
+  );
+}
+
+// import { useState } from 'react';
+// import { Document, Page } from 'react-pdf';
+// import { pdfjs } from 'react-pdf';
+// import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+// import 'react-pdf/dist/esm/Page/TextLayer.css';
+// import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+// import pdf from '/src/assets/HTML.pdf'   
+// pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+
+// export default function Pdf() {
+//   // const [numPages, setNumPages] = useState(null);
+//   // const [pageNumber, setPageNumber] = useState(1);
+
+//   // function onDocumentLoadSuccess({ numPages }) {
+//   //   setNumPages(numPages);
+//   // }
+
+//   // const goToPreviousPage = () => {
+//   //   if (pageNumber > 1) {
+//   //     setPageNumber(pageNumber - 1);
+//   //   }
+//   // };
+
+//   // const goToNextPage = () => {
+//   //   if (pageNumber < numPages) {
+//   //     setPageNumber(pageNumber + 1);
+//   //   }
+//   // };
+
+//   return (
+//     <>
+      
+//       <div >
+//         <div style={{ marginTop: '10px', marginBottom: '10px' }}>
+//           <Document
+
+//             file={pdf}
+//             // onLoadSuccess={onDocumentLoadSuccess}
+//           >
+//             {/* <Page pageNumber={pageNumber} 
+//             /> */}
+//           </Document>
+//         </div>
+//         <div>
+//           {/* <button onClick={goToPreviousPage}><FaArrowLeft /></button> */}
+//           <span style={{ marginLeft: "10px", marginRight: "10px" }}>
+//             {/* Page {pageNumber} of {numPages} */}
+//           </span>
+//           {/* <button onClick={goToNextPage}><FaArrowRight /></button> */}
+//         </div>
+//       </div>
+//     </>
+//   );
+// }
 
 
 

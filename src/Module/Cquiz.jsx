@@ -3,19 +3,19 @@ import { Container, Form, Button, Alert } from 'react-bootstrap';
 
 const questions = [
   {
-    question: 'What does CSS stand for?',
-    options: ['Cascading Style Sheets', 'Creative Style Sheets', 'Computer Style Sheets', 'Colorful Style Sheets'],
-    correctAnswer: 'Cascading Style Sheets'
+    question: 'What is the output of the following C++ code snippet?\n\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 5;\n    cout << "Value of x is: " << x << endl;\n    return 0;\n}',
+    options: ['Value of x is: 5', 'Value of x is: 6', 'Value of x is: 0', 'Compilation Error'],
+    correctAnswer: 'Value of x is: 5'
   },
   {
-    question: 'Which property is used to change the background color of an element?',
-    options: ['background-color', 'color', 'bgcolor', 'background'],
-    correctAnswer: 'background-color'
+    question: 'Which of the following is the correct syntax to declare a pointer in C++?',
+    options: ['int* ptr;', 'int *ptr;', 'int ptr;', 'int ptr*;'],
+    correctAnswer: 'int* ptr;'
   },
   {
-    question: 'Which CSS property is used to control the text size?',
-    options: ['font-size', 'text-style', 'text-size', 'font-style'],
-    correctAnswer: 'font-size'
+    question: 'What is the output of the following code?\n\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int x = 5, y = 2;\n    cout << x / y << endl;\n    return 0;\n}',
+    options: ['2', '2.5', '2.0', 'Compilation Error'],
+    correctAnswer: '2'
   }
 ];
 
@@ -48,7 +48,7 @@ const QuizApp = ({ markAsRead }) => {
   const calculateScore = () => {
     let score = 0;
     for (let i = 0; i < questions.length; i++) {
-      if (selectedOptions[i] === questions[i].correctAnswer) {
+      if (selectedOptions[i].toLowerCase() === questions[i].correctAnswer.toLowerCase()) {
         score++;
       }
     }
@@ -105,6 +105,3 @@ const QuizApp = ({ markAsRead }) => {
 };
 
 export default QuizApp;
-
-
- 
