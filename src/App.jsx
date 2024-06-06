@@ -23,6 +23,24 @@ import FirstPage from './Pages/FirstPage';
 import AboutUsPage from './Pages/AboutusPage';
 // import Profile from './Profile';
 // import Registration from './Registration';
+import Details from './Dashboard/DetailPage'
+import DetailPage from './Dashboard/DetailPage';
+import Profile from './Profile';
+import Admin from "./Pages/Admin" 
+import AdminNavbar from "./Pages/AdminNavbar" 
+import FavoriteCards from './Dashboard/FavoriteCards';
+import AdminCards from './Pages/AdminCards';
+import Fetchdata from "./Fetchdata"
+import UserProfile from './Pages/Userprofile';
+import Contsubmission from './Pages/Contsubmission';
+ import Assignmentanswer from './Pages/Assignmentanswer'
+import AssignmentScores from './Pages/AssignmentScores';
+// import AssignmentManage from './Pages/Assignmentmanage';
+// import Java from './Module/Java';
+import Java from './Module/Java'
+import Phython from './Module/Phython'
+import C from './Module/C'
+import Assignmenttanswer from './Pages/Assignmenttanswer'
 
 export default function() {
   return (
@@ -51,8 +69,23 @@ export default function() {
           <Route path="/StarRatingApp" element={<StarRatingApp/>}/>
           <Route path="/About" element={<AboutUsPage/>}/>
           <Route path="/tags" element={<Tags/>}/>
+          <Route path="/course/:id" element={<DetailPage/>} />
           <Route path="/profile" element={<Profile/>}/>
-         
+          <Route path="/Admin" element={<Admin/>}/>
+          <Route path="/Fav" element={<FavoriteCards/>}/>
+          <Route path="/AdminCard" element={<AdminCards/> }/>
+          <Route path="/fetch" element={<Fetchdata/>}/>
+          <Route path="/Userprofile" element={<UserProfile/>}/>
+          <Route path="/Navbar" element={<AdminNavbar/>}/>
+          <Route path="/Contsubmission" element={<Contsubmission/>}/>
+          <Route path="/assignmentans" element={<Assignmentanswer/>}/>
+          <Route path="/assignmentscores" element={<AssignmentScores/>}/>
+          <Route path="/java" element={<Java/>}/>
+          <Route path="/phython" element={<Phython/>}/>
+          <Route path="/c" element={<C/>}/>
+
+          <Route path="/assignmenttans" element={<Assignmenttanswer/>}/>
+        
     </Routes>
 </BrowserRouter>
       
